@@ -791,7 +791,7 @@ def bot(op):
                 else:md+="=> Protect Link: OFF\n"
                 if wait["inviteprotect"] == True: md+="=> Protect Invite: ON\n"
                 else:md+="=> Protect Invite: OFF\n"
-                if wait["cancelprotect"] == True: md+"=> Protect Cancel: ON\n"
+                if wait["cancelprotect"] == True: md+="=> Protect Cancel: ON\n"
                 else:md+="=> Protect Cancel: OFF\n"
                 acil.sendText(msg.to,md)
             elif "Gowner" == msg.text:
