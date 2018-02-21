@@ -516,10 +516,11 @@ def bot(op):
 #--------------------------------------------------------
 	     elif "Apakah " in msg.text:
 		tanya = msg.text.replace("Apakah ","")
-		if len(string.decode('utf-8')) <= 20:
 		jawab = ("Ya","Tidak")
 		jawaban = random.choice(jawab)
-		acil.sendText(msg.to,jawaban)
+		tts = gTTS(text=jawaban, lang='id')
+                tts.save('tts.mp3')
+                acil.sendAudio(msg.to,'tts.mp3')
 #--------------------------------------------------------
             elif "B2name " in msg.text:
                 string = msg.text.replace("B2name ","")
