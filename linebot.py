@@ -1278,21 +1278,20 @@ def bot(op):
                                 except:
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
-            elif msg.text == "Setlastpoint":
-                    acil.sendText(msg.to, "Check Yang nyimak")
+            elif msg.text.lower() == 'cek':
+                    acil.sendText(msg.to, "Set point.")
                     try:
                         del wait2['readPoint'][msg.to]
                         del wait2['readMember'][msg.to]
                     except:
-                        pass
+                           pass
                     now2 = datetime.now()
                     wait2['readPoint'][msg.to] = msg.id
                     wait2['readMember'][msg.to] = ""
-                    wait2['setTime'][msg.to] = datetime.strftime(now2,"%H:%M")
+                    wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
                     wait2['ROM'][msg.to] = {}
                     print wait2
-
-            elif msg.text == "Cctv":
+            elif msg.text.lower() == 'sider':
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -1301,9 +1300,10 @@ def bot(op):
                             for rom in wait2["ROM"][msg.to].items():
                                 print rom
                                 chiya += rom[1] + "\n"
-                        acil.sendText(msg.to,"======Tercyduck====== %s\n=====Tukang Ngintip======\n%s\nReading point creation date n time:\n[%s]" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
+
+                        acil.sendText(msg.to, "Readers:\n%s\nDate and time:\n[%s]"  % (chiya,setTime[msg.to]))
                     else:
-                         acil.sendText(msg.to,"An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
+                        acil.sendText(msg.to, "Type 'cek' to set point.")
 #-------------------------------------------------
 	    elif "Spam @" in msg.text:
 #	      if msg.from_ in admin:
