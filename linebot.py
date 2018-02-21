@@ -3,7 +3,7 @@
 import ALCAODDYS
 from ALCAODDYS.lib.curve.ttypes import *
 from datetime import datetime
-import time,ast,random,sys,re,os,json,subprocess,codecs,threading,glob
+import time,random,sys,re,os,json,subprocess,codecs,threading,glob,ast
 
 acil = ALCAODDYS.LINE() 
 acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
