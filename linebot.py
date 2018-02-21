@@ -518,9 +518,9 @@ def bot(op):
             elif "Apakah " in msg.text:
                 #if msg.from_ in adminsatu:
                     tanya = msg.text.replace("Apakah ","")
-                	jawab = ("Ya","Tidak","Bisa jadi")
-                	jawaban = random.choice(jawab)
-                	acil.sendText(msg.to,jawaban)
+                    jawab = ("Ya","Tidak","Bisa jadi")
+                    jawaban = random.choice(jawab)
+                    acil.sendText(msg.to,jawaban)
 #--------------------------------------------------------
             elif "B2name " in msg.text:
                 string = msg.text.replace("B2name ","")
