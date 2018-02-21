@@ -1647,6 +1647,18 @@ def bot(op):
                 pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
 #----------------------------------------------- 
+if 'MENTION' in msg.contentMetadata.keys() != None:
+                 	if wait["detectMention"] == True:
+                     		contact = acil.getContact(msg.from_)
+                     		cName = contact.displayName
+                     		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
+                     		ret_ = "." + random.choice(balas)
+                     		name = re.findall(r'@(\w+)', msg.text)
+                     		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                     		mentionees = mention['MENTIONEES']
+                     		for mention in mentionees:
+                           		if mention['M'] in Bots:
+                                  		acil.sendText(msg.to,ret_)    
 #-----------------------------------------------
         if op.type == 19:
             try:
@@ -1845,19 +1857,6 @@ def bot(op):
     except Exception as error:
         print error
 
-	if 'MENTION' in msg.contentMetadata.keys() != None:
-                 	if wait["detectMention"] == True:
-                     		contact = acil.getContact(msg.from_)
-                     		cName = contact.displayName
-                     		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
-                     		ret_ = "." + random.choice(balas)
-                     		name = re.findall(r'@(\w+)', msg.text)
-                     		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                     		mentionees = mention['MENTIONEES']
-                     		for mention in mentionees:
-                           		if mention['M'] in Bots:
-                                  		acil.sendText(msg.to,ret_)
-                                  		break    
 
 def a2():
     now2 = datetime.now()
