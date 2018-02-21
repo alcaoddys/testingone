@@ -1145,6 +1145,14 @@ def bot(op):
                    key1 = key["MENTIONEES"][0]["M"]
                    key = acil.getContact(key1)
                    acil.sendText(msg.to,"Mid:" +  key1)
+                   
+                   elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
+                	wait["detectMention"] = True
+                	acil.sendText(msg.to,"Auto respon tag On")
+                
+            elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
+                	wait["detectMention"] = False
+                	acil.sendText(msg.to,"Auto respon tag Off")
 
             elif "Bro " in msg.text:                  
                        nk0 = msg.text.replace("Bro ","")
@@ -1832,17 +1840,17 @@ def bot(op):
 #------------------------------------------------------------------------------------
 	if 'MENTION' in msg.contentMetadata.keys() != None:
                  	if wait["detectMention"] == True:
-                     		contact = acil.getContact(msg.from_)
-                     		cName = contact.displayName
-                     		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
-                     		ret_ = "." + random.choice(balas)
-                     		name = re.findall(r'@(\w+)', msg.text)
-                     		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                     		mentionees = mention['MENTIONEES']
-                     		for mention in mentionees:
-                           		if mention['M'] in Bots:
-                                  		acil.sendText(msg.to,ret_)
-                                  		break    
+                     	contact = acil.getContact(msg.from_)
+                     	cName = contact.displayName
+                     	balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
+                     	ret_ = "." + random.choice(balas)
+                     	name = re.findall(r'@(\w+)', msg.text)
+                     	mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                     	mentionees = mention['MENTIONEES']
+                     	for mention in mentionees:
+                           	if mention['M'] in Bots:
+                                  	acil.sendText(msg.to,ret_)
+                                  	break    
 #------------------------------------------------------------------------------------
         if op.type == 55:
             if op.param1 in wait2['readPoint']:
