@@ -14,7 +14,7 @@ pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0Q
 pb1.loginResult()
 
 
-print "login success"
+print ("login success")
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
