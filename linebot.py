@@ -1280,32 +1280,32 @@ def bot(op):
 #-----------------------------------------------------------
             elif msg.text.lower() == 'cek':
             	global msg
-                    acil.sendText(msg.to, "Set point.")
-                    try:
-                        del wait2['readPoint'][msg.to]
-                        del wait2['readMember'][msg.to]
-                    except:
-                           pass
-                    now2 = datetime.now()
-                    wait2['readPoint'][msg.to] = msg.id
-                    wait2['readMember'][msg.to] = ""
-                    wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
-                    wait2['ROM'][msg.to] = {}
-                    print wait2
+                    	acil.sendText(msg.to, "Set point.")
+                    	try:
+                        	del wait2['readPoint'][msg.to]
+                        	del wait2['readMember'][msg.to]
+                    	except:
+                           	pass
+                    	now2 = datetime.now()
+                    	wait2['readPoint'][msg.to] = msg.id
+                    	wait2['readMember'][msg.to] = ""
+                    	wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
+                    	wait2['ROM'][msg.to] = {}
+                    	print wait2
             elif msg.text.lower() == 'sider':
             	global msg
-                    if msg.to in wait2['readPoint']:
-                        if wait2["ROM"][msg.to].items() == []:
-                            chiya = ""
-                        else:
-                            chiya = ""
-                            for rom in wait2["ROM"][msg.to].items():
-                                print rom
-                                chiya += rom[1] + "\n"
+                    	if msg.to in wait2['readPoint']:
+                        	if wait2["ROM"][msg.to].items() == []:
+                            	chiya = ""
+                        	else:
+                            	chiya = ""
+                            	for rom in wait2["ROM"][msg.to].items():
+                                	print rom
+                                	chiya += rom[1] + "\n"
 
-                        acil.sendText(msg.to, "Readers:\n%s\nDate and time:\n[%s]"  % (chiya,setTime[msg.to]))
-                    else:
-                        acil.sendText(msg.to, "Type 'cek' to set point.")
+                        	acil.sendText(msg.to, "Readers:\n%s\nDate and time:\n[%s]"  % (chiya,setTime[msg.to]))
+                    	else:
+                        	acil.sendText(msg.to, "Type 'cek' to set point.")
 #-------------------------------------------------
 	    elif "Spam @" in msg.text:
 #	      if msg.from_ in admin:
