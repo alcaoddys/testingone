@@ -124,7 +124,7 @@ wait = {
     'autoJoin':False,
     'autoCancel':{"on":True,"members":5},
     'leaveRoom':True,
-    'detectMention':True,
+    #'detectMention':True,
     'timeline':False,
     'autoAdd':True,
     'message':"""Terima Kasih telah menambahkan saya\nVisit Us : https://starkdancer.net/\nLike Official Fanpage saya di :\nhttps://www.facebook.com/starkdancerforum""",
@@ -1826,19 +1826,19 @@ def bot(op):
                     pb1.sendText(op.param1,str(wait["message"]))
                     pb2.sendText(op.param1,str(wait["message"]))
 #------------------------------------------------------------------------------------
-	if 'MENTION' in msg.contentMetadata.keys() != None:
-                 	if wait["detectMention"] == True:
-                     		contact = acil.getContact(msg.from_)
-                     		cName = contact.displayName
-                     		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
-                     		ret_ = "." + random.choice(balas)
-                     		name = re.findall(r'@(\w+)', msg.text)
-                     		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-                     		mentionees = mention['MENTIONEES']
-                     		for mention in mentionees:
-                           		if mention['M'] in Bots:
-                                  		acil.sendText(msg.to,ret_)
-                                  		break    
+	#if 'MENTION' in msg.contentMetadata.keys() != None:
+         #        	if wait["detectMention"] == True:
+          #           		contact = acil.getContact(msg.from_)
+           #          		cName = contact.displayName
+            #         		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
+             #        		ret_ = "." + random.choice(balas)
+              #       		name = re.findall(r'@(\w+)', msg.text)
+               #      		mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                #     		mentionees = mention['MENTIONEES']
+                 #    		for mention in mentionees:
+                  #         		if mention['M'] in Bots:
+                   #               		acil.sendText(msg.to,ret_)
+                    #              		break    
 #------------------------------------------------------------------------------------
         if op.type == 55:
             if op.param1 in wait2['readPoint']:
