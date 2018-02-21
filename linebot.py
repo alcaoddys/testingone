@@ -769,36 +769,30 @@ def bot(op):
                 acil.sendText(msg.to,"Auto respon tag Off")
             elif msg.text.lower() == 'set':
                 md = ""
-                if wait["contact"] == True: md+="=> Contact:on"
-                else: md+="=> Contact:off"
-                if wait["autoJoin"] == True: md+="=> Auto Join:on"
-                else: md +="=> Auto Join:off"
-                if wait["detectMention"] == True: md+="􀜁􀇔􏿿 Auto Respon:on 􀜁􀄯􏿿\n"
-                else: md +="􀜁􀇔􏿿 Auto Respon:off􀜁􀄰􏿿\n"
-                if wait["autoCancel"]["on"] == True:md+="􀜁􀇔􏿿 Auto cancel:" + str(wait["autoCancel"]["members"]) + "􀜁􀄯􏿿\n"
-                else: md+= "􀜁􀇔􏿿 Group cancel:off 􀜁􀄰􏿿\n"
-                if wait["leaveRoom"] == True: md+="􀜁􀇔􏿿 Auto leave:on 􀜁􀄯􏿿\n"
-                else: md+="􀜁􀇔􏿿 Auto leave:off 􀜁􀄰􏿿\n"
-                if wait["timeline"] == True: md+="􀜁􀇔􏿿 Share:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Share:off 􀜁􀄰􏿿\n"
-                if wait["autoAdd"] == True: md+="􀜁􀇔􏿿 Auto add:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto add:off 􀜁��􏿿\n"
-                if wait["commentOn"] == True: md+="􀜁􀇔􏿿 Auto komentar:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto komentar:off 􀜁􀄰􏿿\n"
-                if wait["protect"] == True: md+="􀜁􀇔􏿿 Protect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Protect:off 🔒\n"
-                if wait["linkprotect"] == True: md+="􀜁􀇔􏿿Link Protect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Link Protect:off🔒\n"
-                if wait["inviteprotect"] == True: md+="􀜁􀇔􏿿Invitation Protect:on🔓\n"
-                else:md+="􀜁􀇔􏿿 Invitation Protect:off🔒\n"
-                if wait["cancelprotect"] == True: md+"􀜁􀇔􏿿 CancelProtect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Cancel Protect:off 🔒\n"
-                acil.sendText(msg.to,md)
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'u8782184ba8b1ca8b49719c1d9fc50a2a'}
-                acil.sendMessage(msg)
-                acil.sendText(msg.to,"❂•••••{CREATOR ALCAODDYS}•••••❂")
+                if wait["contact"] == True: md+="=> Contact: ON\n"
+                else: md+="=> Contact: OFF\n"
+                if wait["autoJoin"] == True: md+="=> Auto Join: ON\n"
+                else: md +="=> Auto Join: OFF\n"
+                if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
+                else: md +="=> Auto Respon: OFF\n"
+                if wait["autoCancel"]["on"] == True:md+="=> Auto Cancel Member: " + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= "=> Auto Cancel Member: OFF\n"
+                if wait["leaveRoom"] == True: md+="=> Auto Leave: ON\n"
+                else: md+="=> Auto Leave: OFF\n"
+                if wait["timeline"] == True: md+="=> Share: ON\n"
+                else:md+="=> Share: OFF\n"
+                if wait["autoAdd"] == True: md+="=> Auto Add: ON\n"
+                else:md+="=> Auto Add: OFF\n"
+                if wait["commentOn"] == True: md+="=> Auto Comment: ON\n"
+                else:md+="=> Auto Comment: OFF\n"
+                if wait["protect"] == True: md+="=> Protect Group: ON\n"
+                else:md+="=> Protect Group: OFF\n"
+                if wait["linkprotect"] == True: md+="=> Protect Link: ON\n"
+                else:md+="=> Protect Link: OFF\n"
+                if wait["inviteprotect"] == True: md+="=> Protect Invite: ON\n"
+                else:md+="=> Protect Invite: OFF\n"
+                if wait["cancelprotect"] == True: md+"=> Protect Cancel: ON\n"
+                else:md+="=> Protect Cancel: OFF\n"
             elif "Gowner" == msg.text:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ginfo.creator.mid}
