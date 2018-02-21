@@ -1277,7 +1277,7 @@ def bot(op):
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
             elif msg.text == "Setlastpoint":
-                    acil.sendText(msg.to, "Please Wait...")
+                    acil.sendText(msg.to, "Check Yang nyimak")
                     try:
                         del wait2['readPoint'][msg.to]
                         del wait2['readMember'][msg.to]
