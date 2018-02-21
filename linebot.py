@@ -4,6 +4,7 @@ import ALCAODDYS
 from ALCAODDYS.lib.curve.ttypes import *
 from datetime import datetime
 import time,random,sys,re,os,json,subprocess,codecs,threading,glob,ast
+global msg
 
 acil = ALCAODDYS.LINE() 
 acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
