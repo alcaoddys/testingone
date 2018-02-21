@@ -9,9 +9,9 @@ acil = ALCAODDYS.LINE()
 acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
 acil.loginResult()
 
-#pb1 = ALCAODDYS.LINE() 
-#pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
-#pb1.loginResult()
+pb1 = ALCAODDYS.LINE() 
+pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
+pb1.loginResult()
 
 
 print "login success"
@@ -54,7 +54,7 @@ helpMessage ="""BOT TAMVAN
 ║Ginfo
 ║Prank in (Masukin bot)
 ║Prank out (Keluarin bot)
-║Setlastpoint
+║Ceksider
 ║Cctv
 ║Glink
 ║Spam on/of "jumlah/text"
@@ -113,11 +113,11 @@ helpMessage ="""BOT TAMVAN
 """
 helo="====I AM SELF ALCAODDYS"
 
-KAC=[acil]
+KAC=[acil,pb1]
 mid = acil.getProfile().mid
-#pb1mid = pb1.getProfile().mid
-Bots=[mid,"u8782184ba8b1ca8b49719c1d9fc50a2a"]
-admin=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
+pb1mid = pb1.getProfile().mid
+Bots=[mid,pb1mid]
+adminsatu=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 
 wait = {
     'contact':False,
@@ -515,7 +515,7 @@ def bot(op):
                     pb1.sendText(msg.to,"􀜁􀇔􏿿Update Names👉" + string + "👈")
 #--------------------------------------------------------
             elif "Apakah " in msg.text:
-                if msg.from_ in admin:
+                if msg.from_ in adminsatu:
                     tanya = msg.text.replace("Apakah ","")
                 jawab = ("Ya","Tidak","Bisa jadi")
                 jawaban = random.choice(jawab)
@@ -1273,7 +1273,7 @@ def bot(op):
                                 except:
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
-            elif msg.text == "CekSider":
+            elif msg.text == "Ceksider":
                     acil.sendText(msg.to, "Please Wait...")
                     try:
                         del wait2['readPoint'][msg.to]
