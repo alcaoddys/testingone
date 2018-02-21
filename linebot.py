@@ -14,7 +14,7 @@ pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0Q
 pb1.loginResult()
 
 
-print ("login success")
+print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -773,6 +773,8 @@ def bot(op):
                 else: md+="􀜁􀇔􏿿 Contact:off􀜁􀄰􏿿\n"
                 if wait["autoJoin"] == True: md+="􀜁􀇔􏿿 Auto Join:on 􀜁􀄯􏿿\n"
                 else: md +="􀜁􀇔􏿿 Auto Join:off􀜁􀄰􏿿\n"
+                if wait["detectMention"] == True: md+="􀜁􀇔􏿿 Auto Respon:on 􀜁􀄯􏿿\n"
+                else: md +="􀜁􀇔􏿿 Auto Respon:off􀜁􀄰􏿿\n"
                 if wait["autoCancel"]["on"] == True:md+="􀜁􀇔􏿿 Auto cancel:" + str(wait["autoCancel"]["members"]) + "􀜁􀄯􏿿\n"
                 else: md+= "􀜁􀇔􏿿 Group cancel:off 􀜁􀄰􏿿\n"
                 if wait["leaveRoom"] == True: md+="􀜁􀇔􏿿 Auto leave:on 􀜁􀄯􏿿\n"
@@ -1145,14 +1147,6 @@ def bot(op):
                    key1 = key["MENTIONEES"][0]["M"]
                    key = acil.getContact(key1)
                    acil.sendText(msg.to,"Mid:" +  key1)
-                   
-                   elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
-                	wait["detectMention"] = True
-                	acil.sendText(msg.to,"Auto respon tag On")
-                
-            elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
-                	wait["detectMention"] = False
-                	acil.sendText(msg.to,"Auto respon tag Off")
 
             elif "Bro " in msg.text:                  
                        nk0 = msg.text.replace("Bro ","")
