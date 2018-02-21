@@ -1832,7 +1832,7 @@ def bot(op):
 #------------------------------------------------------------------------------------
 	if 'MENTION' in msg.contentMetadata.keys() != None:
                  	if wait["detectMention"] == True:
-                     		contact = cl.getContact(msg.from_)
+                     		contact = acil.getContact(msg.from_)
                      		cName = contact.displayName
                      		balas = ["",cName + " what ?, ", cName + " Kenapa? pc dia aja klo penting,  " + cName + "?", "Ada Perlu apa? jgn tag doang, " + cName + "?","Hmm?, ", "Jgn tag tag ah, "]
                      		ret_ = "." + random.choice(balas)
