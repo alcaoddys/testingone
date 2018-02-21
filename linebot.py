@@ -516,7 +516,7 @@ def bot(op):
                     pb1.sendText(msg.to,"􀜁􀇔􏿿Update Names👉" + string + "👈")
 #--------------------------------------------------------
             elif "Apakah " in msg.text:
-                if msg.from_ in adminsatu:
+                #if msg.from_ in adminsatu:
                     tanya = msg.text.replace("Apakah ","")
                 jawab = ("Ya","Tidak","Bisa jadi")
                 jawaban = random.choice(jawab)
