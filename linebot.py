@@ -9,9 +9,9 @@ acil = ALCAODDYS.LINE()
 acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
 acil.loginResult()
 
-pb1 = ALCAODDYS.LINE() 
-pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
-pb1.loginResult()
+#pb1 = ALCAODDYS.LINE() 
+#pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
+#pb1.loginResult()
 
 
 print "login success"
@@ -113,10 +113,10 @@ helpMessage ="""BOT TAMVAN
 """
 helo="====I AM SELF ALCAODDYS"
 
-KAC=[acil,pb1]
+KAC=[acil]
 mid = acil.getProfile().mid
-pb1mid = pb1.getProfile().mid
-Bots=[mid,pb1mid]
+#pb1mid = pb1.getProfile().mid
+Bots=[mid]
 admin=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 
 wait = {
