@@ -761,6 +761,31 @@ def bot(op):
                         acil.sendText(msg.to,"Off👈")
                     else:
                         acil.sendText(msg.to,"Off👈")
+
+                         elif msg.text in ["Autorespon:on"]:
+                if wait["detectMention"] == True:
+                    if wait["lang"] == "JP":
+                        acil.sendText(msg.to,"Auto Respon aktif")
+                    else:
+                        acil.sendText(msg.to,"Sistem ini telah aktif")
+                else:
+                    wait["detectMention"] = True
+                    if wait["lang"] == "JP":
+                        acil.sendText(msg.to,"on👈")
+                    else:
+                        acil.sendText(msg.to,"on👈")
+            elif msg.text in ["Autorespon:off"]:
+                if wait["detectMention"] == False:
+                    if wait["lang"] == "JP":
+                        acil.sendText(msg.to,"Auto Respon nonaktif")
+                    else:
+                        acil.sendText(msg.to,"Sistem ini telah nonaktif")
+                else:
+                    wait["detectMention"] = False
+                    if wait["lang"] == "JP":
+                        acil.sendText(msg.to,"Off👈")
+                    else:
+                        acil.sendText(msg.to,"Off👈")
             elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="􀜁􀇔􏿿 Contact:on 􀜁􀄯􏿿\n"
