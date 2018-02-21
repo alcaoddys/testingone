@@ -793,6 +793,7 @@ def bot(op):
                 else:md+="=> Protect Invite: OFF\n"
                 if wait["cancelprotect"] == True: md+"=> Protect Cancel: ON\n"
                 else:md+="=> Protect Cancel: OFF\n"
+                acil.sendText(msg.to,md)
             elif "Gowner" == msg.text:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ginfo.creator.mid}
