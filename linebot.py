@@ -54,7 +54,7 @@ helpMessage ="""BOT TAMVAN
 ║Ginfo
 ║Prank in (Masukin bot)
 ║Prank out (Keluarin bot)
-║Ceksider
+║Setlastpoint
 ║Cctv
 ║Glink
 ║Spam on/of "jumlah/text"
@@ -1276,7 +1276,7 @@ def bot(op):
                                 except:
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
-            elif msg.text == "Ceksider":
+            elif msg.text == "Setlastpoint":
                     acil.sendText(msg.to, "Please Wait...")
                     try:
                         del wait2['readPoint'][msg.to]
