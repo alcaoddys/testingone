@@ -514,13 +514,11 @@ def bot(op):
                     pb1.updateProfile(profile)
                     pb1.sendText(msg.to,"􀜁􀇔􏿿Update Names👉" + string + "👈")
 #--------------------------------------------------------
-	     elif "Apakah " in msg.text:
-		tanya = msg.text.replace("Apakah ","")
-		jawab = ("Ya","Tidak")
-		jawaban = random.choice(jawab)
-		tts = gTTS(text=jawaban, lang='id')
-                tts.save('tts.mp3')
-                acil.sendAudio(msg.to,'tts.mp3')
+            elif "Apakah " in msg.text:
+                tanya = msg.text.replace("Apakah ","")
+                jawab = ("Ya","Tidak")
+                jawaban = random.choice(jawab)
+                acil.sendText(msg.to,jawaban)
 #--------------------------------------------------------
             elif "B2name " in msg.text:
                 string = msg.text.replace("B2name ","")
