@@ -117,7 +117,7 @@ KAC=[acil,pb1]
 mid = acil.getProfile().mid
 pb1mid = pb1.getProfile().mid
 Bots=[mid,pb1mid]
-admin = "u8782184ba8b1ca8b49719c1d9fc50a2a"
+admin=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 
 wait = {
     'contact':False,
