@@ -4,7 +4,6 @@ import ALCAODDYS
 from ALCAODDYS.lib.curve.ttypes import *
 from datetime import datetime
 import time,random,sys,re,os,json,subprocess,codecs,threading,glob,ast
-global msg
 
 acil = ALCAODDYS.LINE() 
 acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
@@ -1280,6 +1279,7 @@ def bot(op):
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
             elif msg.text.lower() == 'cek':
+            	global msg
                     acil.sendText(msg.to, "Set point.")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -1293,6 +1293,7 @@ def bot(op):
                     wait2['ROM'][msg.to] = {}
                     print wait2
             elif msg.text.lower() == 'sider':
+            	global msg
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
