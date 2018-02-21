@@ -116,13 +116,13 @@ helo="====I AM SELF ALCAODDYS"
 KAC=[acil]
 mid = acil.getProfile().mid
 #pb1mid = pb1.getProfile().mid
-Bots=[mid]
+Bots=[mid,"u8782184ba8b1ca8b49719c1d9fc50a2a"]
 admin=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 
 wait = {
     'contact':False,
     'autoJoin':False,
-    'autoCancel':{"on":True,"members":1},
+    'autoCancel':{"on":True,"members":5},
     'leaveRoom':True,
     'timeline':False,
     'autoAdd':True,
