@@ -514,11 +514,12 @@ def bot(op):
                     pb1.updateProfile(profile)
                     pb1.sendText(msg.to,"􀜁􀇔􏿿Update Names👉" + string + "👈")
 #--------------------------------------------------------
-			elif "Apakah " in msg.text:
-					tanya = msg.text.replace("Apakah ","")
-					jawab = ("Ya","Tidak")
-					jawaban = random.choice(jawab)
-					acil.sendText(msg.to,jawaban)
+	     elif "Apakah " in msg.text:
+		tanya = msg.text.replace("Apakah ","")
+		if len(string.decode('utf-8')) <= 20:
+		jawab = ("Ya","Tidak")
+		jawaban = random.choice(jawab)
+		acil.sendText(msg.to,jawaban)
 #--------------------------------------------------------
             elif "B2name " in msg.text:
                 string = msg.text.replace("B2name ","")
