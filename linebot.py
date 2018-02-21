@@ -117,7 +117,7 @@ KAC=[acil,pb1]
 mid = acil.getProfile().mid
 pb1mid = pb1.getProfile().mid
 Bots=[mid,pb1mid]
-admsa = "uac5b855d26875fdd5dcd206f5ed48d53"
+admin = "u8782184ba8b1ca8b49719c1d9fc50a2a"
 
 wait = {
     'contact':False,
@@ -515,8 +515,9 @@ def bot(op):
                     pb1.sendText(msg.to,"􀜁􀇔􏿿Update Names👉" + string + "👈")
 #--------------------------------------------------------
             elif "Apakah " in msg.text:
+                if msg.from_ in admin:
                 tanya = msg.text.replace("Apakah ","")
-                jawab = ("Ya","Tidak")
+                jawab = ("Ya","Tidak","Bisa jadi")
                 jawaban = random.choice(jawab)
                 acil.sendText(msg.to,jawaban)
 #--------------------------------------------------------
