@@ -88,7 +88,7 @@ helpMessage ="""BOT TAMVAN
 ║=> B1-2name "text"
 ║=> B1-2
 ║=> B1-2 gift
-║=> B come
+║=> B:come
 ║=> B1-2 in
 ║=> B1-2 bye
 ╚═══════════════════╗
@@ -1633,7 +1633,8 @@ def bot(op):
                      			mentionees = mention['MENTIONEES']
                      			for mention in mentionees:
                            			if mention['M'] in Bots:
-                                  			acil.sendText(msg.to,ret_)    
+                                  			acil.sendText(msg.to,ret_)
+                                  			break
 #-----------------------------------------------
         if op.type == 19:
             try:
