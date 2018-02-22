@@ -122,7 +122,7 @@ wait = {
     'autoJoin':False,
     'autoCancel':{"on":True,"members":5},
     'leaveRoom':True,
-    'detectMention':True,
+    #'detectMention':True,
     'timeline':False,
     'autoAdd':True,
     'message':"""Terima Kasih telah menambahkan saya\nVisit Us : https://starkdancer.net/\nLike Official Fanpage saya di :\nhttps://www.facebook.com/starkdancerforum""",
@@ -760,21 +760,21 @@ def bot(op):
                     else:
                         acil.sendText(msg.to,"Off👈")
 
-            elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
-                wait["detectMention"] = True
-                acil.sendText(msg.to,"Auto respon tag On")
+           # elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
+            #    wait["detectMention"] = True
+             #   acil.sendText(msg.to,"Auto respon tag On")
                 
-            elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
-                wait["detectMention"] = False
-                acil.sendText(msg.to,"Auto respon tag Off")
+          #  elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
+           #     wait["detectMention"] = False
+            #    acil.sendText(msg.to,"Auto respon tag Off")
             elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="=> Contact: ON\n"
                 else: md+="=> Contact: OFF\n"
                 if wait["autoJoin"] == True: md+="=> Auto Join: ON\n"
                 else: md +="=> Auto Join: OFF\n"
-                if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
-                else: md +="=> Auto Respon: OFF\n"
+              #  if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
+               # else: md +="=> Auto Respon: OFF\n"
                 if wait["autoCancel"]["on"] == True:md+="=> Auto Cancel Member: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Auto Cancel Member: OFF\n"
                 if wait["leaveRoom"] == True: md+="=> Auto Leave: ON\n"
