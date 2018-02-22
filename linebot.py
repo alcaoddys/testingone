@@ -769,13 +769,13 @@ def bot(op):
             elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
                 wait["detectMention"] = False
                 acil.sendText(msg.to,"Auto respon tag Off")
-                elif msg.text in ["Autoread on","Read:on"]:
+            elif msg.text in ["Autoread on","Read:on"]:
                 wait['alwayRead'] = True
-                cl.sendText(msg.to,"Auto read On")
+                acil.sendText(msg.to,"Auto read On")
                 
             elif msg.text in ["Autoread off","Read:off"]:
                 wait['alwayRead'] = False
-                cl.sendText(msg.to,"Auto read Off")
+                acil.sendText(msg.to,"Auto read Off")
             elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="=> Contact: ON\n"
