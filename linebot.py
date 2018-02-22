@@ -6,7 +6,7 @@ from datetime import datetime
 import time,random,sys,re,os,json,subprocess,codecs,threading,glob,ast
 
 acil = ALCAODDYS.LINE() 
-acil.login(token="EqETrLMvw3b6w3LjEaA3.RfUfxsAhx91DZsbVxTsnuW.R0BZ2hOWZlHE4WJUfFFV2vI71HNmKoUTH/EaNRb5mOM=")
+acil.login(token="Eq2mrDoYPG7NEf2txAc3.RfUfxsAhx91DZsbVxTsnuW.52IH9e1kpBJ7FJioM6KgxJcwE63MsD2bAfaMI1FC1KU=")
 acil.loginResult()
 
 pb1 = ALCAODDYS.LINE() 
