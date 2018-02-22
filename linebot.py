@@ -1806,14 +1806,14 @@ def bot(op):
                  		if wait["detectMention"] == True:
                      			contact = acil.getContact(msg.from_)
                      			cName = contact.displayName
-                     			balas = ["",cName + "Ada apa ?", cName + "Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang." + cName ,"Hah?","Jgn tag tag ah."]
-                     			ret_ = "Ya kk/cc " + random.choice(balas)
+                     			balas = ["",cName + " Ada apa ?", cName + "Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang." + cName ,"Hah?","Jgn tag tag ah."]
+                     			ret = "Ya kk/cc " + random.choice(balas)
                      			name = re.findall(r'@(\w+)', msg.text)
                      			mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                      			mentionees = mention['MENTIONEES']
                      			for mention in mentionees:
                            			if mention['M'] in admin:
-                                  			acil.sendText(msg.to,ret_)
+                                  			acil.sendText(msg.to,ret)
                                   			break
 #------------------------------------------------------------------------------------
         if op.type == 55:
