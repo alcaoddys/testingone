@@ -3,7 +3,7 @@
 import ALCAODDYS
 from ALCAODDYS.lib.curve.ttypes import *
 from datetime import datetime
-import time,random,sys,re,os,json,subprocess,codecs,threading,glob,ast
+import time,random,sys,ast,re,os,json,subprocess,codecs,threading,glob
 
 acil = ALCAODDYS.LINE() 
 acil.login(token="Eq2mrDoYPG7NEf2txAc3.RfUfxsAhx91DZsbVxTsnuW.52IH9e1kpBJ7FJioM6KgxJcwE63MsD2bAfaMI1FC1KU=")
@@ -122,7 +122,7 @@ wait = {
     'autoJoin':False,
     'autoCancel':{"on":True,"members":5},
     'leaveRoom':True,
-    #'detectMention':True,
+    'detectMention':True,
     'timeline':False,
     'autoAdd':True,
     'message':"""Terima Kasih telah menambahkan saya\nVisit Us : https://starkdancer.net/\nLike Official Fanpage saya di :\nhttps://www.facebook.com/starkdancerforum""",
@@ -760,21 +760,21 @@ def bot(op):
                     else:
                         acil.sendText(msg.to,"Off👈")
 
-           # elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
-            #    wait["detectMention"] = True
-             #   acil.sendText(msg.to,"Auto respon tag On")
+            elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
+                wait["detectMention"] = True
+                acil.sendText(msg.to,"Auto respon tag On")
                 
-          #  elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
-           #     wait["detectMention"] = False
-            #    acil.sendText(msg.to,"Auto respon tag Off")
+            elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
+                wait["detectMention"] = False
+                acil.sendText(msg.to,"Auto respon tag Off")
             elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="=> Contact: ON\n"
                 else: md+="=> Contact: OFF\n"
                 if wait["autoJoin"] == True: md+="=> Auto Join: ON\n"
                 else: md +="=> Auto Join: OFF\n"
-              #  if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
-               # else: md +="=> Auto Respon: OFF\n"
+                if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
+                else: md +="=> Auto Respon: OFF\n"
                 if wait["autoCancel"]["on"] == True:md+="=> Auto Cancel Member: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Auto Cancel Member: OFF\n"
                 if wait["leaveRoom"] == True: md+="=> Auto Leave: ON\n"
@@ -1622,19 +1622,7 @@ def bot(op):
                 pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
 #----------------------------------------------- 
-	#if 'MENTION' in msg.contentMetadata.keys() != None:
-     #            		if wait["detectMention"] == True:
-      #               			contact = acil.getContact(msg.from_)
-       #              			cName = contact.displayName
-        #             			balas = ["",cName + "Ada apa ?", cName + "Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang." + cName ,"Hah?","Jgn tag tag ah."]
-         #            			ret_ = "Ya kk/cc " + random.choice(balas)
-          #           			name = re.findall(r'@(\w+)', msg.text)
-           #          			mention = ast.literal_eval(msg.contentMetadata['MENTION'])
-            #         			mentionees = mention['MENTIONEES']
-             #        			for mention in mentionees:
-              #             			if mention['M'] in Bots:
-               #                   			acil.sendText(msg.to,ret_)
-                #                  			break
+	
 #-----------------------------------------------
         if op.type == 19:
             try:
@@ -1814,6 +1802,19 @@ def bot(op):
                     pb1.sendText(op.param1,str(wait["message"]))
                     pb2.sendText(op.param1,str(wait["message"]))
 #------------------------------------------------------------------------------------
+if "MENTION" in msg.contentMetadata.keys() != None:
+                 		if wait["detectMention"] == True:
+                     			contact = acil.getContact(msg.from_)
+                     			cName = contact.displayName
+                     			balas = ["",cName + "Ada apa ?", cName + "Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang." + cName ,"Hah?","Jgn tag tag ah."]
+                     			ret_ = "Ya kk/cc " + random.choice(balas)
+                     			name = re.findall(r'@(\w+)', msg.text)
+                     			mention = ast.literal_eval(msg.contentMetadata['MENTION'])
+                     			mentionees = mention['MENTIONEES']
+                     			for mention in mentionees:
+                           			if mention['M'] in admin:
+                                  			acil.sendText(msg.to,ret_)
+                                  			break
 #------------------------------------------------------------------------------------
         if op.type == 55:
             if op.param1 in wait2['readPoint']:
