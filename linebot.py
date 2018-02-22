@@ -98,6 +98,7 @@ helpMessage ="""BOT TAMVAN
 ║=> Join:on/off
 ║=> Leave:on/off
 ║=> Share:on/off
+║=> Read:on/off
 ║=> Com:on/off
 ║=> Clock:on/off
 ╚══════════════════╗
@@ -122,6 +123,7 @@ wait = {
     'autoJoin':False,
     'autoCancel':{"on":True,"members":5},
     'leaveRoom':True,
+    'alwayRead':True,
     'detectMention':True,
     'timeline':False,
     'autoAdd':True,
@@ -767,6 +769,13 @@ def bot(op):
             elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
                 wait["detectMention"] = False
                 acil.sendText(msg.to,"Auto respon tag Off")
+                elif msg.text in ["Autoread on","Read:on"]:
+                wait['alwayRead'] = True
+                cl.sendText(msg.to,"Auto read On")
+                
+            elif msg.text in ["Autoread off","Read:off"]:
+                wait['alwayRead'] = False
+                cl.sendText(msg.to,"Auto read Off")
             elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="=> Contact: ON\n"
@@ -775,6 +784,8 @@ def bot(op):
                 else: md +="=> Auto Join: OFF\n"
                 if wait["detectMention"] == True: md+="=> Auto Respon: ON\n"
                 else: md +="=> Auto Respon: OFF\n"
+                if wait["alwayRead"] == True: md+="=> Auto Read: ON\n"
+                else: md +="=> Auto Read: OFF\n"
                 if wait["autoCancel"]["on"] == True:md+="=> Auto Cancel Member: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Auto Cancel Member: OFF\n"
                 if wait["leaveRoom"] == True: md+="=> Auto Leave: ON\n"
@@ -1622,7 +1633,11 @@ def bot(op):
                 pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
 #----------------------------------------------- 
-	
+	if wait["alwayRead"] == True:
+                if msg.toType == 0:
+                    acil.sendChatChecked(msg.from_,msg.id)
+                else:
+                    acil.sendChatChecked(msg.to,msg.id)
 #-----------------------------------------------
         if op.type == 19:
             try:
