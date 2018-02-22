@@ -1802,7 +1802,7 @@ def bot(op):
                     pb1.sendText(op.param1,str(wait["message"]))
                     pb2.sendText(op.param1,str(wait["message"]))
 #------------------------------------------------------------------------------------
-if "MENTION" in msg.contentMetadata.keys() != None:
+	if "MENTION" in msg.contentMetadata.keys() != None:
                  		if wait["detectMention"] == True:
                      			contact = acil.getContact(msg.from_)
                      			cName = contact.displayName
