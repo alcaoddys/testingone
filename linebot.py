@@ -19,6 +19,9 @@ pb1 = ALCAODDYS.LINE()
 pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
 pb1.loginResult()
 
+pb2 = ALCAODDYS.LINE() 
+pb2.login(token="masukan token disini")
+pb2.loginResult()
 
 print "Login Sukses"
 reload(sys)
@@ -117,11 +120,10 @@ helpMessage ="""BOT TAMVAN
 ~ THANK YOU ~
 """
 
-KAC=[acil,pb1]
+KAC = [acil]
 mid = acil.getProfile().mid
-pb1mid = pb1.getProfile().mid
-Bots=[mid,pb1mid]
-admin=["u8782184ba8b1ca8b49719c1d9fc50a2a"]
+Bots = [mid]
+admin = ["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 
 wait = {
     'contact':False,
@@ -1832,15 +1834,8 @@ def bot(op):
                      			mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                      			mentionees = mention['MENTIONEES']
                      			for mention in mentionees:
-                           			if mention['M'] in admin:
-                                  			acil.sendText(msg.to,ret_)
-                                  			msg.contentType = 7   
-                                  			msg.text = None
-                                  			msg.contentMetadata = {
-                                                       "STKID": "20001316",
-                                                       "STKPKGID": "1582380",
-                                                       "STKVER": "1" }
-                                  			acil.sendMessage(msg)
+                           			if mention['M'] in Bots:
+                                  			pb1.sendText(msg.to,ret_)
                                   			break
 #------------------------------------------------------------------------------------
         if op.type == 55:
