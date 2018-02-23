@@ -2,12 +2,13 @@
 
 import ALCAODDYS
 from ALCAODDYS.lib.curve.ttypes import *
-from datetime import datetime
 from bs4 import BeautifulSoup
 from threading import Thread
 from googletrans import Translator
 from gtts import gTTS
 import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,os,subprocess,requests,tempfile
+
+#from datetime import datetime
 #import time,random,sys,ast,re,os,json,subprocess,codecs,threading,glob
 
 acil = ALCAODDYS.LINE() 
@@ -82,7 +83,7 @@ helpMessage ="""BOT TAMVAN
 ║=> Kick @mbl "kick blacklist"
 ║=> Ping
 ║=> Set
-╚═══════════════════╗
+╚════════════════════╗
 ╔═ COMMAND ASSISTEN ═╝
 ║=> All:
 ║=> Allbio:
@@ -115,7 +116,6 @@ helpMessage ="""BOT TAMVAN
 ╚═══════════════════╝
 ~ THANK YOU ~
 """
-helo="====I AM SELF ALCAODDYS"
 
 KAC=[acil,pb1]
 mid = acil.getProfile().mid
@@ -1826,14 +1826,21 @@ def bot(op):
                  		if wait["detectMention"] == True:
                      			contact = acil.getContact(msg.from_)
                      			cName = contact.displayName
-                     			balas = ["",cName + " Ada apa ?", cName + "Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang." + cName ,"Hah?","Jgn tag tag ah."]
-                     			ret = "Ya kk/cc " + random.choice(balas)
+                     			balas = ["",cName + " Ada apa ?", cName + " Kenapa? pc Admin aja klo penting.","Ada Perlu apa? jgn tag doang " + cName ,"Hah?","Jgn tag tag ah."]
+                     			ret_ = random.choice(balas)
                      			name = re.findall(r'@(\w+)', msg.text)
                      			mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                      			mentionees = mention['MENTIONEES']
                      			for mention in mentionees:
                            			if mention['M'] in admin:
-                                  			acil.sendText(msg.to,ret)
+                                  			acil.sendText(msg.to,ret_)
+                                  			msg.contentType = 7   
+                                  			msg.text = None
+                                  			msg.contentMetadata = {
+                                                       "STKID": "20001316",
+                                                       "STKPKGID": "1582380",
+                                                       "STKVER": "1" }
+                                  			acil.sendMessage(msg)
                                   			break
 #------------------------------------------------------------------------------------
         if op.type == 55:
