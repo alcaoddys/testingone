@@ -19,9 +19,9 @@ pb1 = ALCAODDYS.LINE()
 pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
 pb1.loginResult()
 
-pb2 = ALCAODDYS.LINE() 
-pb2.login(token="mEqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
-pb2.loginResult()
+#pb2 = ALCAODDYS.LINE() 
+#pb2.login(token="mEqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
+#pb2.loginResult()
 
 print "Login Sukses"
 reload(sys)
