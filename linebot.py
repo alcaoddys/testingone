@@ -1835,7 +1835,7 @@ def bot(op):
                      			mentionees = mention['MENTIONEES']
                      			for mention in mentionees:
                            			if mention['M'] in Bots:
-                                  			pb1.sendText(msg.to,ret_)
+                                  			acil.sendText(msg.to,ret_)
                                   			break
 #------------------------------------------------------------------------------------
         if op.type == 55:
