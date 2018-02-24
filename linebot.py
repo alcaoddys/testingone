@@ -1634,7 +1634,7 @@ def bot(op):
                     if msg.from_ in admin:
                     ginfo = acil.getGroup(msg.to)
                     acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
-                    acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
+                    acil.sendText(msg.to,"Owner arup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
             elif "Bc " in msg.text:
 				bctxt = msg.text.replace("Bc ","")
 				kisendText(msg.to,(bctxt))
