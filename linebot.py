@@ -1511,8 +1511,8 @@ def bot(op):
                         pass
 #-----------------------------------------------
             elif msg.text in ["Sp","Speed","speed"]:
-                    if msg.from_ in admin:
                     start = time.time()
+                    if msg.from_ in admin:
                     acil.sendText(msg.to, "Processing Request..")
                     elapsed_time = time.time() - start
                     acil.sendText(msg.to, "%sseconds" % (elapsed_time))
