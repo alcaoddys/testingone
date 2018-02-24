@@ -1113,7 +1113,7 @@ def bot(op):
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
-                   #if msg.from_ in admin:
+                   if msg.from_ in admin:
                    for x in key["MENTIONEES"]:
                        targets.append(x["M"])
                    for target in targets:
