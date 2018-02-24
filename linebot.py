@@ -311,6 +311,8 @@ def bot(op):
                         acil.updateGroup(group)
                     else:
                         acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
+                            else:
+                                    acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
             elif ("Gn " in msg.text):
                 if msg.toType == 2:
                     group = acil.getGroup(msg.to)
