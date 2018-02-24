@@ -325,11 +325,8 @@ def bot(op):
                 acil.findAndAddContactsByMid(midd)
                 acil.inviteIntoGroup(msg.to,[midd])
             elif "Me" == msg.text:
-                if msg.from_ in admin:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': mid}
-                acil.sendMessage(msg)
-            else:
                 acil.sendMessage(msg)
             elif "Mybots" == msg.text:
                 msg.contentType = 13
@@ -1113,7 +1110,7 @@ def bot(op):
 #-----------------------------------------------------------
 
             elif ("Sikat " in msg.text):
-                #if msg.from_ in admin:
+                if msg.from_ in admin:
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
@@ -1124,6 +1121,8 @@ def bot(op):
                            acil.kickoutFromGroup(msg.to,[target])
                        except:
                            acil.sendText(msg.to,"Error")
+                       else:
+                        acil.sendText(msg.to,"Done")
             elif ("Ciduk " in msg.text):
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
