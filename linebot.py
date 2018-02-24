@@ -9,9 +9,9 @@ acil = ALCAODDYS.LINE()
 acil.login(token="Eq2mrDoYPG7NEf2txAc3.RfUfxsAhx91DZsbVxTsnuW.52IH9e1kpBJ7FJioM6KgxJcwE63MsD2bAfaMI1FC1KU=")
 acil.loginResult()
 
-pb1 = ALCAODDYS.LINE() 
-pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
-pb1.loginResult()
+#pb1 = ALCAODDYS.LINE() 
+#pb1.login(token="EqhDdROy1hqDxn4RYe9a.H4iys6IXYOTjCzWDN8ukkG.FALzow1BuNDOgPdbt0QEXZYW70nDatO/X8HuJcawtkY=")
+#pb1.loginResult()
 
 
 print "login success"
