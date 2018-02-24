@@ -304,15 +304,12 @@ def bot(op):
                 else:
                     acil.sendText(msg.to,helpMessage)
             elif ("Gn:" in msg.text):
-                    if msg.from_ in admin:
-                    #if msg.toType == 2:
+                    if msg.toType == 2:
                         group = acil.getGroup(msg.to)
                         group.name = msg.text.replace("Gn:","")
                         acil.updateGroup(group)
-                    #else:
-                       # acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
-                           # else:
-                            #        acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
+                    else:
+                       acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
             elif ("Gn " in msg.text):
                 if msg.toType == 2:
                     group = acil.getGroup(msg.to)
@@ -1634,9 +1631,10 @@ def bot(op):
                         pass
 #-----------------------------------------------
             elif msg.text in ["Welcome","wc","welcome","Wc"]:
-                ginfo = acil.getGroup(msg.to)
-                acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
-                acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
+                    if msg.from_ in admin:
+                    ginfo = acil.getGroup(msg.to)
+                    acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
+                    acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
             elif "Bc " in msg.text:
 				bctxt = msg.text.replace("Bc ","")
 				kisendText(msg.to,(bctxt))
