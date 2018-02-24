@@ -325,8 +325,11 @@ def bot(op):
                 acil.findAndAddContactsByMid(midd)
                 acil.inviteIntoGroup(msg.to,[midd])
             elif "Me" == msg.text:
+                if msg.from_ in admin:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': mid}
+                acil.sendMessage(msg)
+            else:
                 acil.sendMessage(msg)
             elif "Mybots" == msg.text:
                 msg.contentType = 13
@@ -1110,7 +1113,7 @@ def bot(op):
 #-----------------------------------------------------------
 
             elif ("Sikat " in msg.text):
-                if msg.from_ == "u8782184ba8b1ca8b49719c1d9fc50a2a":
+                #if msg.from_ in admin:
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
@@ -1267,7 +1270,7 @@ def bot(op):
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
             elif msg.text == "Setlastpoint":
-                if msg.from_ in admin:
+                #if msg.from_ in admin:
                     acil.sendText(msg.to, "Check Yang nyimak")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -1282,7 +1285,7 @@ def bot(op):
                     print wait2
 
             elif msg.text == "Cctv":
-                if msg.from_ in admin:
+               # if msg.from_ in admin:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
