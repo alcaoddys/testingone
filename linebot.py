@@ -1267,6 +1267,7 @@ def bot(op):
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
             elif msg.text == "Setlastpoint":
+                if msg.from_ in admin:
                     acil.sendText(msg.to, "Check Yang nyimak")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -1281,6 +1282,7 @@ def bot(op):
                     print wait2
 
             elif msg.text == "Cctv":
+                if msg.from_ in admin:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
