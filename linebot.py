@@ -1124,7 +1124,7 @@ def bot(op):
 #-----------------------------------------------------------
 
             elif ("Sikat " in msg.text):
-            	if msg.from_ in admin:
+            	#if msg.from_ in admin:
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
