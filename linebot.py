@@ -304,12 +304,13 @@ def bot(op):
                 else:
                     acil.sendText(msg.to,helpMessage)
             elif ("Gn:" in msg.text):
-                if msg.toType == 2:
-                    group = acil.getGroup(msg.to)
-                    group.name = msg.text.replace("Gn:","")
-                    pb1.updateGroup(group)
-                else:
-                    acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
+                    if msg.from_ in admin:
+                    if msg.toType == 2:
+                        group = acil.getGroup(msg.to)
+                        group.name = msg.text.replace("Gn:","")
+                        acil.updateGroup(group)
+                    else:
+                        acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
             elif ("Gn " in msg.text):
                 if msg.toType == 2:
                     group = acil.getGroup(msg.to)
@@ -1110,7 +1111,6 @@ def bot(op):
 #-----------------------------------------------------------
 
             elif ("Sikat " in msg.text):
-                if msg.from_ in admin:
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
@@ -1121,8 +1121,6 @@ def bot(op):
                            acil.kickoutFromGroup(msg.to,[target])
                        except:
                            acil.sendText(msg.to,"Error")
-                       else:
-                        acil.sendText(msg.to,"Done")
             elif ("Ciduk " in msg.text):
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
