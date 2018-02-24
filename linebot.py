@@ -30,12 +30,6 @@ sys.setdefaultencoding('utf-8')
 helpMessage ="""BOT TAMVAN
 ╔═══ COMMAND BOT TAMVAN ═══╗
 ║=> Me
-║=> Add
-║=> Cn "text"
-║=> Clockname "text"
-║=> TL:"text"
-║=> Ban:"mid"
-║=> Unban:"mid"
 ║=> Bl:on
 ║=> Unbl:on
 ║=> Mcheck
@@ -61,8 +55,8 @@ helpMessage ="""BOT TAMVAN
 ║=> Gcancel:"jumlah"
 ║=> Gcancelall
 ║=> Ginfo
-║=> Prank in (Masukin bot)
-║=> Prank out (Keluarin bot)
+║=> Bot masuk
+║=> Bot keluar
 ║=> Glink
 ║=> Spam on/off "jumlah/text"
 ║=> Gurl
@@ -80,11 +74,8 @@ helpMessage ="""BOT TAMVAN
 ║=> Copy "@"
 ║=> Nuke
 ║=> Backup
-║=> Tag
-║=> Bc "text"
-║=> Say "text"
+║=> Tagalluser
 ║=> Kick @mbl "kick blacklist"
-║=> Ping
 ║=> Set
 ╚════════════════════╗
 ╔═ COMMAND ASSISTEN ═╝
@@ -109,7 +100,6 @@ helpMessage ="""BOT TAMVAN
 ║=> Share:on/off
 ║=> Read:on/off
 ║=> Com:on/off
-║=> Clock:on/off
 ╚══════════════════╗
 ╔═ COMMAND PROTECT═╝
 ║=> Pro:on/off
@@ -128,7 +118,7 @@ admin = ["u8782184ba8b1ca8b49719c1d9fc50a2a"]
 wait = {
     'contact':False,
     'autoJoin':False,
-    'autoCancel':{"on":True,"members":5},
+    'autoCancel':{"on":True,"members":30},
     'leaveRoom':True,
     'alwayRead':True,
     'detectMention':True,
@@ -482,9 +472,9 @@ def bot(op):
             elif "All mid" == msg.text:
                 pb1.sendText(msg.to,pb1mid)
                 pb2.sendText(msg.to,pb2mid)
-            elif "TL:" in msg.text:
-                tl_text = msg.text.replace("TL:","")
-                acil.sendText(msg.to,"line://home/post?userMid="+mid+"&postId="+acil.new_post(tl_text)["result"]["post"]["postInfo"]["postId"])
+            #elif "TL:" in msg.text:
+            #    tl_text = msg.text.replace("TL:","")
+            #    acil.sendText(msg.to,"line://home/post?userMid="+mid+"&postId="+acil.new_post(tl_text)["result"]["post"]["postInfo"]["postId"])
             elif "All:" in msg.text:
                 string = msg.text.replace("All:","")
                 if len(string.decode('utf-8')) <= 20:
@@ -506,13 +496,13 @@ def bot(op):
                     profile = pb2.getProfile()
                     profile.statusMessage = string
                     pb2.updateProfile(profile)
-            elif "Cn " in msg.text:
-                string = msg.text.replace("Cn ","")
-                if len(string.decode('utf-8')) <= 20:
-                    profile = acil.getProfile()
-                    profile.displayName = string
-                    acil.updateProfile(profile)
-                    acil.sendText(msg.to,"􀜁􀇔􏿿Update Names👉 " + string + "👈")
+            #elif "Cn " in msg.text:
+            #    string = msg.text.replace("Cn ","")
+            #    if len(string.decode('utf-8')) <= 20:
+            #        profile = acil.getProfile()
+            #        profile.displayName = string
+            #        acil.updateProfile(profile)
+            #        acil.sendText(msg.to,"􀜁􀇔􏿿Update Names👉 " + string + "👈")
 #---------------------------------------------------------
             elif "B1name " in msg.text:
                 string = msg.text.replace("B1name ","")
@@ -812,17 +802,17 @@ def bot(op):
                 if wait["cancelprotect"] == True: md+="=> Protect Cancel: ON\n"
                 else:md+="=> Protect Cancel: OFF\n"
                 acil.sendText(msg.to,md)
-            elif "Gowner" == msg.text:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ginfo.creator.mid}
-                acil.sendText(msg.to,"[Nama]\n" + str(ginfo.name) + "\n[Group Id]\n" + msg.to + "\n\n[Group Creator]\n" + gCreator + "\n\nAnggota:" + str(len(ginfo.members)) + "\nInvitation:" + sinvitee + "")
-                acil.sendMessage(msg)
-            elif cms(msg.text,["Add"]):
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'u8782184ba8b1ca8b49719c1d9fc50a2a'}
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
-                acil.sendMessage(msg)
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
+            #elif "Gowner" == msg.text:
+            #    msg.contentType = 13
+            #    msg.contentMetadata = {'mid': ginfo.creator.mid}
+            #    acil.sendText(msg.to,"[Nama]\n" + str(ginfo.name) + "\n[Group Id]\n" + msg.to + "\n\n[Group Creator]\n" + gCreator + "\n\nAnggota:" + str(len(ginfo.members)) + "\nInvitation:" + sinvitee + "")
+            #    acil.sendMessage(msg)
+            #elif cms(msg.text,["Add"]):
+            #    msg.contentType = 13
+            #    msg.contentMetadata = {'mid': 'u8782184ba8b1ca8b49719c1d9fc50a2a'}
+            #    acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
+            #    acil.sendMessage(msg)
+            #    acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
             elif "Set album:" in msg.text:
                 gid = msg.text.replace("Set album:","")
                 album = acil.getAlbum(gid)
@@ -1134,6 +1124,7 @@ def bot(op):
 #-----------------------------------------------------------
 
             elif ("Sikat " in msg.text):
+            	if msg.from_ in admin:
                    targets = []
                    key = eval(msg.contentMetadata["MENTION"])
                    key["MENTIONEES"][0]["M"]
@@ -1196,7 +1187,7 @@ def bot(op):
                       pass
 
 
-            elif ("Ban " in msg.text):
+            elif ("Banned " in msg.text):
                 key = eval(msg.contentMetadata["MENTION"])
                 key["MENTIONEES"][0]["M"]
                 targets = []
@@ -1207,7 +1198,7 @@ def bot(op):
                       wait["blacklist"][target] = True
                       f=codecs.open('st2__b.json','w','utf-8')
                       json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                      acil.sendText(msg.to,"Succes Banned")
+                      acil.sendText(msg.to,"Banned Berhasil.")
                    except:
                       pass
 
@@ -1454,7 +1445,7 @@ def bot(op):
                                 pb2.sendText(msg,to,"Nuke Succes Bos")
 #-------------------- = NUKE FINISH = ----------------------------- 
 #-------------Fungsi Tagall User Start---------------#
-            elif msg.text in ["Dor","Tagall","Crot","Tag"]:
+            elif msg.text in ["Dor","Tagalluser","Crot","Tag"]:
                 group = acil.getGroup(msg.to)
                 nama = [contact.mid for contact in group.members]
                 cb = ""
@@ -1504,7 +1495,7 @@ def bot(op):
                     except:
                         pass
 #-----------------------------------------------
-            elif msg.text in ["Sp","Speed","speed"]:
+            elif msg.text in ["Speedbot","speedbot"]:
                 start = time.time()
                 acil.sendText(msg.to, "Processing Request..")
                 elapsed_time = time.time() - start
@@ -1512,7 +1503,7 @@ def bot(op):
                 pb1.sendText(msg.to, "%sseconds" % (elapsed_time))
                 pb2.sendText(msg.to, "%sseconds" % (elapsed_time))
 #-----------------------------------------------
-            elif msg.text.lower() == 'prank in':
+            elif msg.text.lower() == 'bot masuk':
                         G = acil.getGroup(msg.to)
                         ginfo = acil.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -1598,11 +1589,11 @@ def bot(op):
                         pb2.updateGroup(G)
 #-----------------------------------------------
 #-----------------------------------------------
-            elif msg.text.lower() == 'prank out':
+            elif msg.text.lower() == 'bot keluar':
                 if msg.toType == 2:
                     ginfo = acil.getGroup(msg.to)
                     try:
-                        acil.sendText(msg.to,"􀜁􀇔􏿿Bye Bye😘 jangan lupa subcrabe channel youtube nya\nhttps://www.youtube.com/channel/UCycBrqSWEHdk-slnhUmGWiQ\n"  +  str(ginfo.name)  + "")
+                        acil.sendText(msg.to,"Bot Telah Keluar")
                         pb1.leaveGroup(msg.to)
                         pb2.leaveGroup(msg.to)
                     except:
@@ -1626,18 +1617,18 @@ def bot(op):
 #-----------------------------------------------
             elif msg.text in ["Welcome","wc","welcome","Wc"]:
                 ginfo = acil.getGroup(msg.to)
-                acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
-                acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
-            elif "Bc " in msg.text:
-				bctxt = msg.text.replace("Bc ","")
-				kisendText(msg.to,(bctxt))
-            elif "Say " in msg.text:
-				bctxt = msg.text.replace("Say ","")
-				pb1.sendText(msg.to,(bctxt))
-				pb2.sendText(msg.to,(bctxt))
-            elif msg.text.lower() == 'ping':
-                pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
-                pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
+                acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name) + "Langsung cek note ya... \nDan jangan lupa baca peraturan sebelum download.")
+           #     acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
+           # elif "Bc " in msg.text:
+			#	bctxt = msg.text.replace("Bc ","")
+			#	kisendText(msg.to,(bctxt))
+           # elif "Say " in msg.text:
+			#	bctxt = msg.text.replace("Say ","")
+		#		pb1.sendText(msg.to,(bctxt))
+		#		pb2.sendText(msg.to,(bctxt))
+         #   elif msg.text.lower() == 'ping':
+          #      pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
+           #     pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
 #----------------------------------------------- 
 	if wait["alwayRead"] == True:
