@@ -437,7 +437,7 @@ def bot(op):
                         acil.sendText(msg.to,"Can not be used for groups other than ô€œ")
             elif "Ginfo" == msg.text:
               if msg.toType == 2:
-#                if msg.from_ in admin:
+                if msg.from_ in admin:
                   ginfo = acil.getGroup(msg.to)
                   try:
                     gCreator = ginfo.creator.displayName
