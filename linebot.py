@@ -305,12 +305,12 @@ def bot(op):
                     acil.sendText(msg.to,helpMessage)
             elif ("Gn:" in msg.text):
                     if msg.from_ in admin:
-                    if msg.toType == 2:
+                    #if msg.toType == 2:
                         group = acil.getGroup(msg.to)
                         group.name = msg.text.replace("Gn:","")
                         acil.updateGroup(group)
-                    else:
-                        acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
+                    #else:
+                       # acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
                             else:
                                     acil.sendText(msg.to,"Hal ini tidak dapat digunakan di luar kelompok👈")
             elif ("Gn " in msg.text):
