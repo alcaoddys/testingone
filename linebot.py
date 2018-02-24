@@ -1511,12 +1511,13 @@ def bot(op):
                         pass
 #-----------------------------------------------
             elif msg.text in ["Sp","Speed","speed"]:
-                start = time.time()
-                acil.sendText(msg.to, "Processing Request..")
-                elapsed_time = time.time() - start
-                acil.sendText(msg.to, "%sseconds" % (elapsed_time))
-                pb1.sendText(msg.to, "%sseconds" % (elapsed_time))
-                pb2.sendText(msg.to, "%sseconds" % (elapsed_time))
+                    if msg.from_ in admin:
+                    start = time.time()
+                    acil.sendText(msg.to, "Processing Request..")
+                    elapsed_time = time.time() - start
+                    acil.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #pb1.sendText(msg.to, "%sseconds" % (elapsed_time))
+                #pb2.sendText(msg.to, "%sseconds" % (elapsed_time))
 #-----------------------------------------------
             elif msg.text.lower() == 'prank in':
                         G = acil.getGroup(msg.to)
@@ -1631,7 +1632,6 @@ def bot(op):
                         pass
 #-----------------------------------------------
             elif msg.text in ["Welcome","wc","welcome","Wc"]:
-                    if msg.from_ in admin:
                     ginfo = acil.getGroup(msg.to)
                     acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
                     acil.sendText(msg.to,"Owner arup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
