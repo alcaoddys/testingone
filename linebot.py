@@ -6,7 +6,7 @@ from datetime import datetime
 import time,random,sys,re,os,json,subprocess,codecs,threading,glob
 
 acil = ALCAODDYS.LINE() 
-acil.login(token="EqIr2MzEqrcwjv53qTz3.RfUfxsAhx91DZsbVxTsnuW.F4nwtEhL4FO3/8bjXz3vVkafaMfSkEC1J/IKCGm7Bk0=")
+acil.login(token="EqIs9FUqKzoP4C34k1G8.E7BXd77ZmMEYPFak1RSN/a.LC2flkv41hUgR0TG75y/FKnPa9nEktPWAefM7Kh3JKI=")
 acil.loginResult()
 
 #pb1 = ALCAODDYS.LINE() 
@@ -164,6 +164,15 @@ backup = acil.getProfile()
 backup.displayName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
+
+def sendMessage(to, text, contentMetadata={}, contentType=0):
+    mes = Message()
+    mes.to, mes.from_ = to, profile.mid
+    mes.text = text
+    mes.contentType, mes.contentMetadata = contentType, contentMetadata
+    if to not in messageReq:
+        messageReq[to] = -1
+    messageReq[to] += 1
 
 
 def cms(string, commands): #/XXX, >XXX, ;XXX, ^XXX, %XXX, $XXX...
@@ -1266,7 +1275,7 @@ def bot(op):
                                     acil.sendText(msg.to,"Error")
 #-----------------------------------------------------------
             elif msg.text == "Setlastpoint":
-                #if msg.from_ in admin:
+                if msg.from_ in admin:
                     acil.sendText(msg.to, "Check Yang nyimak")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -1281,7 +1290,7 @@ def bot(op):
                     print wait2
 
             elif msg.text == "Cctv":
-               # if msg.from_ in admin:
+                if msg.from_ in admin:
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
