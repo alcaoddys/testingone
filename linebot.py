@@ -1273,6 +1273,10 @@ def bot(op):
 									acil.sendText(msg.to,"Target Unlocked")
                                 except:
                                     acil.sendText(msg.to,"Error")
+                                    elif msg.text in ["Woy","woy","Woi","woi","bot","Bot"]:
+                 quote = ['Istri yang baik itu Istri yang Mengizinkan Suaminya untuk Poligami 😂😂😂.','Kunci Untuk Bikin Suami Bahagia itu cuma satu..\nIzinkan Suamimu Untuk Selingkuh Coyyy ','Ah Kupret Lu','Muka Lu Kaya Jamban','Ada Orang kah disini?','Sange Euy','Ada Perawan Nganggur ga Coy?']
+                 psn = random.choice(quote)
+                 acil.sendText(msg.to,psn)
 #-----------------------------------------------------------
             elif msg.text == "Setlastpoint":
                 if msg.from_ in admin:
