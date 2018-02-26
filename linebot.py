@@ -269,19 +269,6 @@ def bot(op):
                   Z.preventJoinByTicket = True
                   random.choice(KAC).updateGroup(Z)
         #------Protect Group Kick finish-----#
-            #------Cancel Invite User start------#
-        if op.type == 25:
-          if wait["Protectcancel"] == True:
-            group = acil.getGroup(op.param1)
-            gMembMids = [contact.mid for contact in group.invitee]
-            if op.param2 in Bots:
-              pass
-            if op.param2 in admin:
-              pass
-            else:
-              random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
-              random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
-        #------Cancel Invite User Finish------#
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
@@ -317,6 +304,19 @@ def bot(op):
                     else:
                         wait["dblacklist"] = False
                         acil.sendText(msg.to,"Done👈")
+                            #------Cancel Invite User start------#
+        #if op.type == 25:
+          elif wait["Protectcancel"] == True:
+            group = acil.getGroup(op.param1)
+            gMembMids = [contact.mid for contact in group.invitee]
+            if op.param2 in Bots:
+              pass
+            if op.param2 in admin:
+              pass
+            else:
+              random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
+              random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
+        #------Cancel Invite User Finish------#
                 elif wait["contact"] == True:
                     msg.contentType = 0
                     acil.sendText(msg.to,msg.contentMetadata["mid"])
