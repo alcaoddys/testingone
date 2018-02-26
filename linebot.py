@@ -161,11 +161,11 @@ setTime = {}
 setTime = wait2['setTime']
 
 
-contact = acil.getProfile()
-backup = acil.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
+#contact = acil.getProfile()
+#backup = acil.getProfile()
+#backup.displayName = contact.displayName
+#backup.statusMessage = contact.statusMessage
+#backup.pictureStatus = contact.pictureStatus
 
 def sendMessage(to, text, contentMetadata={}, contentType=0):
     mes = Message()
@@ -226,7 +226,7 @@ def bot(op):
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == "u06856881c176ae1144cc757861d15056":
+                if msg.from_ == "u8782184ba8b1ca8b49719c1d9fc50a2a":
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
