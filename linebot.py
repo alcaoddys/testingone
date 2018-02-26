@@ -251,9 +251,9 @@ def bot(op):
         if op.type == 11:
           if wait["Protectgr"] == True:
             if acil.getGroup(op.param1).preventJoinByTicket == False:
-              if op.param3 in Bots:
+              if op.param2 in Bots:
                 pass
-              if op.param3 in admin:
+              if op.param2 in admin:
                 pass
               else:
                 try:
@@ -270,13 +270,13 @@ def bot(op):
                   random.choice(KAC).updateGroup(Z)
         #------Protect Group Kick finish-----#
             #------Cancel Invite User start------#
-        if op.type == 13:
+        if op.type == 25:
           if wait["Protectcancel"] == True:
             group = acil.getGroup(op.param1)
             gMembMids = [contact.mid for contact in group.invitee]
-            if op.param3 in Bots:
+            if op.param2 in Bots:
               pass
-            if op.param3 in admin:
+            if op.param2 in admin:
               pass
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
