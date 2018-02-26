@@ -141,6 +141,7 @@ wait = {
     "dblacklist":False,
     "protect":True,
         "Protectgr":True,
+            "Protectcancel":True,
     "cancelprotect":False,
     "inviteprotect":False,
     "linkprotect":False,
@@ -256,18 +257,31 @@ def bot(op):
                 pass
               else:
                 try:
-                  acil.sendText(op.param1,acil.getContact(op.param2).displayName + "Jangan Buka Kode QR Njiiir")
+                  acil.sendText(op.param1,acil.getContact(op.param2).displayName + " Jangan Buka Kode QR Njiiir")
                   acil.kickoutFromGroup(op.param1,[op.param2])
                   X = acil.getGroup(op.param1)
                   X.preventJoinByTicket = True
                   acil.updateGroup(X)
                 except:
-                  random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + "Jangan Buka Kode QR Njiiir")
+                  random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Kode QR Njiiir")
                   random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                   Z = random.choice(KAC).getGroup(op.param1)
                   Z.preventJoinByTicket = True
                   random.choice(KAC).updateGroup(Z)
         #------Protect Group Kick finish-----#
+            #------Cancel Invite User start------#
+        if op.type == 13:
+          if wait["Protectcancel"] == True:
+            group = acil.getGroup(op.param1)
+            gMembMids = [contact.mid for contact in group.invitee]
+            if op.param2 in Bots:
+              pass
+            if op.param2 in admin:
+              pass
+            else:
+              random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
+              random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
+        #------Cancel Invite User Finish------#
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
