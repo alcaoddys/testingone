@@ -140,6 +140,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "protect":True,
+        "Protectgr":True,
     "cancelprotect":False,
     "inviteprotect":False,
     "linkprotect":False,
@@ -245,6 +246,28 @@ def bot(op):
                 acil.comment(url[25:58], url[66:], wait["comment1"])
                 pb1.comment(url[25:58], url[66:], wait["comment1"])
                 pb2.comment(url[25:58], url[66:], wait["comment1"])
+                    #------Protect Group Kick start------#
+        if op.type == 11:
+          if wait["Protectgr"] == True:
+            if acil.getGroup(op.param1).preventJoinByTicket == False:
+              if op.param2 in Bots:
+                pass
+              if op.param2 in admin:
+                pass
+              else:
+                try:
+                  acil.sendText(op.param1,acil.getContact(op.param2).displayName + "Jangan Buka Kode QR Njiiir")
+                  acil.kickoutFromGroup(op.param1,[op.param2])
+                  X = acil.getGroup(op.param1)
+                  X.preventJoinByTicket = True
+                  acil.updateGroup(X)
+                except:
+                  random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + "Jangan Buka Kode QR Njiiir")
+                  random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                  Z = random.choice(KAC).getGroup(op.param1)
+                  Z.preventJoinByTicket = True
+                  random.choice(KAC).updateGroup(Z)
+        #------Protect Group Kick finish-----#
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
