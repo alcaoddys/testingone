@@ -161,11 +161,11 @@ setTime = {}
 setTime = wait2['setTime']
 
 
-#contact = acil.getProfile()
-#backup = acil.getProfile()
-#backup.displayName = contact.displayName
-#backup.statusMessage = contact.statusMessage
-#backup.pictureStatus = contact.pictureStatus
+contact = acil.getProfile()
+backup = acil.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
 
 def sendMessage(to, text, contentMetadata={}, contentType=0):
     mes = Message()
@@ -251,9 +251,9 @@ def bot(op):
         if op.type == 11:
           if wait["Protectgr"] == True:
             if acil.getGroup(op.param1).preventJoinByTicket == False:
-              if op.param2 in Bots:
+              if op.param3 in Bots:
                 pass
-              if op.param2 in admin:
+              if op.param3 in admin:
                 pass
               else:
                 try:
@@ -274,9 +274,9 @@ def bot(op):
           if wait["Protectcancel"] == True:
             group = acil.getGroup(op.param1)
             gMembMids = [contact.mid for contact in group.invitee]
-            if op.param2 in Bots:
+            if op.param3 in Bots:
               pass
-            if op.param2 in admin:
+            if op.param3 in admin:
               pass
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
