@@ -1822,10 +1822,10 @@ def bot(op):
              #membermid = [contact.mid for contact in group.invitee]
                     random.choice(KAC).kickoutFromGroup(op.param1,[ contact.mid for contact in group.invitee])
                     random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
-        else:
-            acil.sendText(op.param1,"")
-        else:
-        acil.sendText(op.param1,"")
+                    else:
+                    acil.sendText(op.param1,"")
+                    else:
+                    acil.sendText(op.param1,"")
 	    if op.param2 not in Bots:
 		if op.param2 in Bots:
 		    pass
