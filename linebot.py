@@ -18,7 +18,7 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage ="""(╣•℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́•╣)
+helpMessage ="""
 ╔══B༘̈́̈́L༘̈́̈́Ä༘́̈́C༘̈́̈́K༘̈́̈́   ̈́Ö༘́̈́F༘̈́̈́ ̈́  G༘̈́̈́Ä༘́̈́M༘̈́̈́Ë༘́̈́R༘̈́̈́══╗
 ║Me
 ║Add
@@ -270,7 +270,7 @@ def bot(op):
                   random.choice(KAC).updateGroup(Z)
         #------Protect Group Kick finish-----#
          #------Cancel Invite User start------#
-        if op.type == 11:
+        if op.type == 13:
           if wait["Protectcancel"] == True:
             group = acil.getGroup(op.param1)
             gMembMids = [contact.mid for contact in group.invitee]
@@ -806,22 +806,22 @@ def bot(op):
                         acil.sendText(msg.to,"Off👈")
             elif msg.text.lower() == 'set':
                 md = ""
-                if wait["contact"] == True: md+="􀜁􀇔􏿿 Contact:on 􀜁􀄯􏿿\n"
-                else: md+="􀜁􀇔􏿿 Contact:off􀜁􀄰􏿿\n"
-                if wait["autoJoin"] == True: md+="􀜁􀇔􏿿 Auto Join:on 􀜁􀄯􏿿\n"
-                else: md +="􀜁􀇔􏿿 Auto Join:off􀜁􀄰􏿿\n"
-                if wait["autoCancel"]["on"] == True:md+="􀜁􀇔􏿿 Auto cancel:" + str(wait["autoCancel"]["members"]) + "􀜁􀄯􏿿\n"
-                else: md+= "􀜁􀇔􏿿 Group cancel:off 􀜁􀄰􏿿\n"
-                if wait["leaveRoom"] == True: md+="􀜁􀇔􏿿 Auto leave:on 􀜁􀄯􏿿\n"
-                else: md+="􀜁􀇔􏿿 Auto leave:off 􀜁􀄰􏿿\n"
-                if wait["timeline"] == True: md+="􀜁􀇔􏿿 Share:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Share:off 􀜁􀄰􏿿\n"
-                if wait["autoAdd"] == True: md+="􀜁􀇔􏿿 Auto add:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto add:off 􀜁��􏿿\n"
-                if wait["commentOn"] == True: md+="􀜁􀇔􏿿 Auto komentar:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto komentar:off 􀜁􀄰􏿿\n"
-                if wait["protect"] == True: md+="􀜁􀇔􏿿 Protect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Protect:off 🔒\n"
+                if wait["contact"] == True: md+="=> Contact: [On]\n"
+                else: md+="=> Contact: [Off]\n"
+                if wait["autoJoin"] == True: md+="=> Auto Join: [On]\n"
+                else: md +="=> Auto Join: [Off]\n"
+                if wait["autoCancel"]["on"] == True:md+="=> Auto Cancel Group: " + str(wait["autoCancel"]["members"])
+                else: md+= "=> Auto Cancel Group: [Off]\n"
+                if wait["leaveRoom"] == True: md+="=> Auto Leave: [On]\n"
+                else: md+="=> Auto Leave: [Off]\n"
+                if wait["timeline"] == True: md+="=> Share Timeline: [On]\n"
+                else:md+="=> Share Timeline: [Off]\n"
+                if wait["autoAdd"] == True: md+="=> Auto Add: [On]\n"
+                else:md+="=> Auto Add: [Off]\n"
+                if wait["commentOn"] == True: md+="=> Auto Comment: [On]\n"
+                else:md+="=> Auto Comment: [Off]\n"
+                if wait["protect"] == True: md+="=> Protect Group: [On]\n"
+                else:md+="=> Protect Group: [Off]\n"
                 if wait["linkprotect"] == True: md+="􀜁􀇔􏿿Link Protect:on 🔓\n"
                 else:md+="􀜁􀇔􏿿 Link Protect:off🔒\n"
                 if wait["inviteprotect"] == True: md+="􀜁􀇔􏿿Invitation Protect:on🔓\n"
@@ -829,11 +829,6 @@ def bot(op):
                 if wait["cancelprotect"] == True: md+"􀜁􀇔􏿿 CancelProtect:on 🔓\n"
                 else:md+="􀜁􀇔􏿿 Cancel Protect:off 🔒\n"
                 acil.sendText(msg.to,md)
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'ufce863f62f40706c01fa4a3c3c4cb096'}
-                acil.sendMessage(msg)
-                acil.sendText(msg.to,"❂•••••{CREATOR ALCAODDYS}•••••❂")
             elif "Gowner" == msg.text:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ginfo.creator.mid}
@@ -841,7 +836,7 @@ def bot(op):
                 acil.sendMessage(msg)
             elif cms(msg.text,["Add"]):
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': 'u5818cb4404411c2e2e6e6937d172cca8'}
+                msg.contentMetadata = {'mid': 'u8782184ba8b1ca8b49719c1d9fc50a2a'}
                 acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
                 acil.sendMessage(msg)
                 acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
@@ -1823,8 +1818,10 @@ def bot(op):
 		if op.param2 in Bots:
 		    pass
 		elif wait["inviteprotect"] == True:
-		    wait ["blacklist"][op.param2] = True
-		    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		    #wait ["blacklist"][op.param2] = True
+                gMembMids = [contact.mid for contact in group.invitee]
+		    random.choice(KAC).kickoutFromGroup(op.param1,gMembMids)
+                random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
 		else:
 		    acil.sendText(op.param1,"")
 	    else:
@@ -1833,7 +1830,7 @@ def bot(op):
 		if op.param2 in Bots:
 		    pass
 		elif wait["inviteprotect"] == True:
-		    wait ["blacklist"][op.param2] = True
+		    #wait ["blacklist"][op.param2] = True
 		    acil.cancelGroupInvitation(op.param1,[contact.mid for contact in acil.getGroup(op.param1).invitee])
 		else:
 		    acil.sendText(op.param1,"")
