@@ -1819,8 +1819,8 @@ def bot(op):
 		    pass
 		elif wait["inviteprotect"] == True:
 		    #wait ["blacklist"][op.param2] = True
-                gMembMids = [contact.mid for contact in group.invitee]
-		    random.choice(KAC).kickoutFromGroup(op.param1,gMembMids)
+                membermid = [contact.mid for contact in group.invitee]
+		    random.choice(KAC).kickoutFromGroup(op.param1,membermid)
                 random.choice(KAC).sendText(op.param1, "Mau Ngundang Siapa Ka?\nKk Bukan Admin\nJadi Aku Cancel😛")
 		else:
 		    acil.sendText(op.param1,"")
