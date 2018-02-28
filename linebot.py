@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import PRANKBOTS
-from PRANKBOTS.lib.curve.ttypes import *
+import ALCAODDYS
+from ALCAODDYS.lib.curve.ttypes import *
 from datetime import datetime
 import time,random,sys,re,os,json,subprocess,codecs,threading,glob
 
-acil = PRANKBOTS.LINE() 
+acil = ALCAODDYS.LINE() 
 acil.login(token="EqIs9FUqKzoP4C34k1G8.E7BXd77ZmMEYPFak1RSN/a.LC2flkv41hUgR0TG75y/FKnPa9nEktPWAefM7Kh3JKI=")
 acil.loginResult()
 
-pb1 = PRANKBOTS.LINE() 
+pb1 = ALCAODDYS.LINE() 
 pb1.login(token="EqIs9FUqKzoP4C34k1G8.E7BXd77ZmMEYPFak1RSN/a.LC2flkv41hUgR0TG75y/FKnPa9nEktPWAefM7Kh3JKI=")
 pb1.loginResult()
 
-pb2 = PRANKBOTS.LINE() 
+pb2 = ALCAODDYS.LINE() 
 pb2.login(token="EqIs9FUqKzoP4C34k1G8.E7BXd77ZmMEYPFak1RSN/a.LC2flkv41hUgR0TG75y/FKnPa9nEktPWAefM7Kh3JKI=")
 pb2.loginResult()
 
