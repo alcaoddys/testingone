@@ -1782,7 +1782,7 @@ def bot(op):
 		elif wait["inviteprotect"] == True:
 		    group = cl.getGroup(op.param1)
             gMembMids = [contact.mid for contact in group.invitee]
-		    random.choice(KAC).kickoutFromGroup(op.param1,gMembMids)
+		      random.choice(KAC).kickoutFromGroup(op.param1,gMembMids)
 		else:
 		    acil.sendText(op.param1,"")
 	    else:
