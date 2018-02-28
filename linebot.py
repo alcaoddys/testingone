@@ -1781,7 +1781,7 @@ def bot(op):
 		    pass
 		elif wait["inviteprotect"] == True:
 		    group = cl.getGroup(op.param1)
-            gMembMids = [contact.mid for contact in group.invitee]
+					gMembMids = [contact.mid for contact in group.invitee]
 					random.choice(KAC).kickoutFromGroup(op.param1,gMembMids)
 		else:
 		    acil.sendText(op.param1,"")
