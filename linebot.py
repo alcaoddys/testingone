@@ -1657,7 +1657,7 @@ def bot(op):
                 #pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
 #-----------------------------------------------
-if wait["alwayRead"] == True:
+    if wait["alwayRead"] == True:
         if msg.toType == 0:
                 acil.sendChatChecked(msg.from_,msg.id)
             else:
