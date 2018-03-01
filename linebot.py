@@ -125,7 +125,7 @@ admsa = "u8782184ba8b1ca8b49719c1d9fc50a2a"
 wait = {
     'contact':False,
     'autoJoin':False,
-    'alwayRead':True,
+    'alwaysRead':True,
     'autoCancel':{"on":True,"members":30},
     'leaveRoom':True,
     'timeline':False,
@@ -764,10 +764,10 @@ def bot(op):
                     else:
                         acil.sendText(msg.to,"Off👈")
             elif msg.text in ["Autoread on","Read:on"]:
-                    wait['alwayRead'] = True
+                    wait['alwaysRead'] = True
                     acil.sendText(msg.to,"Auto read On")
             elif msg.text in ["Autoread off","Read:off"]:
-                    wait['alwayRead'] = False
+                    wait['alwaysRead'] = False
                     acil.sendText(msg.to,"Auto read Off")
             elif msg.text.lower() == 'set':
                 md = ""
@@ -1655,7 +1655,7 @@ def bot(op):
             #elif msg.text.lower() == 'ping':
                 #pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
                 #pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
-                if wait["alwayRead"] == True:
+                if wait["alwaysRead"] == True:
                     if msg.toType == 0:
                         acil.sendChatChecked(msg.from_,msg.id)
                     else:
