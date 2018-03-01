@@ -1655,13 +1655,13 @@ def bot(op):
             #elif msg.text.lower() == 'ping':
                 #pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
                 #pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
+                if wait["alwayRead"] == True:
+                    if msg.toType == 0:
+                        acil.sendChatChecked(msg.from_,msg.id)
+                    else:
+                        acil.sendChatChecked(msg.to,msg.id)
             
 #-----------------------------------------------
-    if wait["alwayRead"] == True:
-        if msg.toType == 0:
-                acil.sendChatChecked(msg.from_,msg.id)
-            else:
-                acil.sendChatChecked(msg.to,msg.id)
 #-----------------------------------------------
         if op.type == 19:
             try:
