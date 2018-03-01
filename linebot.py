@@ -775,8 +775,8 @@ def bot(op):
                 else: md+="=> Contact: [Off]\n"
                 if wait["autoJoin"] == True: md+="=> Auto Join: [On]\n"
                 else: md +="=> Auto Join: [Off]\n"
-                if wait["alwayRead"] == True: md+="=> Auto Read: ON\n"
-                else: md +="=> Auto Read: OFF\n"
+                if wait["alwayRead"] == True: md+="=> Auto Read: [On]\n"
+                else: md +="=> Auto Read: [Off]\n"
                 if wait["autoCancel"]["on"] == True:md+="=> Member Group: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Member Group: [Off]\n"
                 if wait["leaveRoom"] == True: md+="=> Auto Leave: [On]\n"
@@ -1657,9 +1657,9 @@ def bot(op):
                 #pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
                 if wait["alwayRead"] == True:
                     if msg.toType == 0:
-                        acil.sendChatChecked(msg.from_,msg.id)
+                        random.choice(KAC).sendChatChecked(msg.from_,msg.id)
                     else:
-                        acil.sendChatChecked(msg.to,msg.id)
+                        random.choice(KAC).sendChatChecked(msg.to,msg.id)
             
 #-----------------------------------------------
 #-----------------------------------------------
