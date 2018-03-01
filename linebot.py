@@ -775,7 +775,9 @@ def bot(op):
                 else: md+="=> Contact: [Off]\n"
                 if wait["autoJoin"] == True: md+="=> Auto Join: [On]\n"
                 else: md +="=> Auto Join: [Off]\n"
-                if wait["autoCancel"]["on"] == True:md+="=> Member Group: [On]" + str(wait["autoCancel"]["members"]) + "\n"
+                if wait["alwaysRead"] == True: md+"=> Auto Read Chat: [On]\n"
+                else:md+="=> Auto Read Chat: [Off]\n"
+                if wait["autoCancel"]["on"] == True:md+="=> Member Group: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Member Group: [Off]\n"
                 if wait["leaveRoom"] == True: md+="=> Auto Leave: [On]\n"
                 else: md+="=> Auto Leave: [Off]\n"
@@ -793,8 +795,6 @@ def bot(op):
                 else:md+="=> Disable Invite Member: [Off]\n"
                 if wait["cancelprotect"] == True: md+"=> Disable Invite Group: [On]\n"
                 else:md+="=> Disable Invite Group: [Off]\n"
-                if wait["alwaysRead"] == True: md+"=> Auto Read Chat: [On]\n"
-                else:md+="=> Auto Read Chat: [Off]\n"
                 acil.sendText(msg.to,md)
                 #acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
                 #msg.contentType = 13
