@@ -125,7 +125,7 @@ admsa = "u8782184ba8b1ca8b49719c1d9fc50a2a"
 wait = {
     'contact':False,
     'autoJoin':False,
-    'alwaysRead':True,
+    'alwayRead':True,
     'autoCancel':{"on":True,"members":30},
     'leaveRoom':True,
     'timeline':False,
@@ -764,10 +764,10 @@ def bot(op):
                     else:
                         acil.sendText(msg.to,"Off👈")
             elif msg.text in ["Autoread on","Read:on"]:
-                    wait['alwaysRead'] = True
+                    wait['alwayRead'] = True
                     acil.sendText(msg.to,"Auto read On")
             elif msg.text in ["Autoread off","Read:off"]:
-                    wait['alwaysRead'] = False
+                    wait['alwayRead'] = False
                     acil.sendText(msg.to,"Auto read Off")
             elif msg.text.lower() == 'set':
                 md = ""
@@ -775,7 +775,7 @@ def bot(op):
                 else: md+="=> Contact: [Off]\n"
                 if wait["autoJoin"] == True: md+="=> Auto Join: [On]\n"
                 else: md +="=> Auto Join: [Off]\n"
-                if wait["alwaysRead"] == True: md+"=> Auto Read Chat: [On]\n"
+                if wait["alwayRead"] == True: md+"=> Auto Read Chat: [On]\n"
                 else:md+="=> Auto Read Chat: [Off]\n"
                 if wait["autoCancel"]["on"] == True:md+="=> Member Group: " + str(wait["autoCancel"]["members"]) + "\n"
                 else: md+= "=> Member Group: [Off]\n"
