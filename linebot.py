@@ -22,8 +22,8 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage ="""(╣•℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́•╣)
-╔══B༘̈́̈́L༘̈́̈́Ä༘́̈́C༘̈́̈́K༘̈́̈́   ̈́Ö༘́̈́F༘̈́̈́ ̈́  G༘̈́̈́Ä༘́̈́M༘̈́̈́Ë༘́̈́R༘̈́̈́══╗
+helpMessage ="""
+╔════╗
 ║Me
 ║Add
 ║Cn "text"
@@ -113,9 +113,7 @@ helpMessage ="""(╣•℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́ ̰в̰̰̈́❍
 ║Proinvite:on/off
 ║Procancel:on/off
 ╚══════════╝
-(╣•℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́ ̰в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́•╣)
 """
-helo="====I AM SELF PRANKBOTS"
 
 KAC=[acil,pb1,pb2]
 mid = acil.getProfile().mid
@@ -127,6 +125,7 @@ admsa = "u8782184ba8b1ca8b49719c1d9fc50a2a"
 wait = {
     'contact':False,
     'autoJoin':False,
+    'alwayRead':True,
     'autoCancel':{"on":True,"members":30},
     'leaveRoom':True,
     'timeline':False,
@@ -221,7 +220,7 @@ def bot(op):
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == "u06856881c176ae1144cc757861d15056":
+                if msg.from_ == "u8782184ba8b1ca8b49719c1d9fc50a2a":
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
@@ -764,47 +763,55 @@ def bot(op):
                         acil.sendText(msg.to,"Off👈")
                     else:
                         acil.sendText(msg.to,"Off👈")
+            elif msg.text in ["Autoread on","Read:on"]:
+                    wait['alwayRead'] = True
+                    acil.sendText(msg.to,"Auto read On")
+            elif msg.text in ["Autoread off","Read:off"]:
+                    wait['alwayRead'] = False
+                    acil.sendText(msg.to,"Auto read Off")
             elif msg.text.lower() == 'set':
                 md = ""
-                if wait["contact"] == True: md+="􀜁􀇔􏿿 Contact:on 􀜁􀄯􏿿\n"
-                else: md+="􀜁􀇔􏿿 Contact:off􀜁􀄰􏿿\n"
-                if wait["autoJoin"] == True: md+="􀜁􀇔􏿿 Auto Join:on 􀜁􀄯􏿿\n"
-                else: md +="􀜁􀇔􏿿 Auto Join:off􀜁􀄰􏿿\n"
-                if wait["autoCancel"]["on"] == True:md+="􀜁􀇔􏿿 Auto cancel:" + str(wait["autoCancel"]["members"]) + "􀜁􀄯􏿿\n"
-                else: md+= "􀜁􀇔􏿿 Group cancel:off 􀜁􀄰􏿿\n"
-                if wait["leaveRoom"] == True: md+="􀜁􀇔􏿿 Auto leave:on 􀜁􀄯􏿿\n"
-                else: md+="􀜁􀇔􏿿 Auto leave:off 􀜁􀄰􏿿\n"
-                if wait["timeline"] == True: md+="􀜁􀇔􏿿 Share:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Share:off 􀜁􀄰􏿿\n"
-                if wait["autoAdd"] == True: md+="􀜁􀇔􏿿 Auto add:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto add:off 􀜁��􏿿\n"
-                if wait["commentOn"] == True: md+="􀜁􀇔􏿿 Auto komentar:on 􀜁􀄯􏿿\n"
-                else:md+="􀜁􀇔􏿿 Auto komentar:off 􀜁􀄰􏿿\n"
-                if wait["protect"] == True: md+="􀜁􀇔􏿿 Protect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Protect:off 🔒\n"
-                if wait["linkprotect"] == True: md+="􀜁􀇔􏿿Link Protect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Link Protect:off🔒\n"
-                if wait["inviteprotect"] == True: md+="􀜁􀇔􏿿Invitation Protect:on🔓\n"
-                else:md+="􀜁􀇔􏿿 Invitation Protect:off🔒\n"
-                if wait["cancelprotect"] == True: md+"􀜁􀇔􏿿 CancelProtect:on 🔓\n"
-                else:md+="􀜁􀇔􏿿 Cancel Protect:off 🔒\n"
+                if wait["contact"] == True: md+="=> Contact: [On]\n"
+                else: md+="=> Contact: [Off]\n"
+                if wait["autoJoin"] == True: md+="=> Auto Join: [On]\n"
+                else: md +="=> Auto Join: [Off]\n"
+                if wait["autoCancel"]["on"] == True:md+="=> Member Group: [On]" + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= "=> Member Group: [Off]\n"
+                if wait["leaveRoom"] == True: md+="=> Auto Leave: [On]\n"
+                else: md+="=> Auto Leave: [Off]\n"
+                if wait["timeline"] == True: md+="=> Share Timeline: [On]\n"
+                else:md+="=> Share Timeline: [Off]\n"
+                if wait["autoAdd"] == True: md+="=> Auto Add: [On]\n"
+                else:md+="=> Auto Add: [Off]\n"
+                if wait["commentOn"] == True: md+="=> Auto Comment: [On]\n"
+                else:md+="=> Auto Comment: [Off]\n"
+                if wait["protect"] == True: md+="=> Protect Group: [On]\n"
+                else:md+="=> Protect Group: [Off]\n"
+                if wait["linkprotect"] == True: md+="=> Protect QR Code: [On]\n"
+                else:md+="=> Protect QR Code: [Off]\n"
+                if wait["inviteprotect"] == True: md+="=> Disable Invite Member: [On]\n"
+                else:md+="=> Disable Invite Member: [Off]\n"
+                if wait["cancelprotect"] == True: md+"=> Disable Invite Group: [On]\n"
+                else:md+="=> Disable Invite Group: [Off]\n"
+                if wait["alwaysRead"] == True: md+"=> Auto Read Chat: [On]\n"
+                else:md+="=> Auto Read Chat: [Off]\n"
                 acil.sendText(msg.to,md)
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'ufce863f62f40706c01fa4a3c3c4cb096'}
-                acil.sendMessage(msg)
-                acil.sendText(msg.to,"❂•••••{CREATOR PRANKBOTS}•••••❂")
-            elif "Gowner" == msg.text:
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ginfo.creator.mid}
-                acil.sendText(msg.to,"[Nama]\n" + str(ginfo.name) + "\n[Group Id]\n" + msg.to + "\n\n[Group Creator]\n" + gCreator + "\n\nAnggota:" + str(len(ginfo.members)) + "\nInvitation:" + sinvitee + "")
-                acil.sendMessage(msg)
-            elif cms(msg.text,["Add"]):
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': 'u5818cb4404411c2e2e6e6937d172cca8'}
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
-                acil.sendMessage(msg)
-                acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
+                #acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': 'ufce863f62f40706c01fa4a3c3c4cb096'}
+                #acil.sendMessage(msg)
+                #acil.sendText(msg.to,"❂•••••{CREATOR PRANKBOTS}•••••❂")
+            #elif "Gowner" == msg.text:
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ginfo.creator.mid}
+                #acil.sendText(msg.to,"[Nama]\n" + str(ginfo.name) + "\n[Group Id]\n" + msg.to + "\n\n[Group Creator]\n" + gCreator + "\n\nAnggota:" + str(len(ginfo.members)) + "\nInvitation:" + sinvitee + "")
+                #acil.sendMessage(msg)
+            #elif cms(msg.text,["Add"]):
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': 'u5818cb4404411c2e2e6e6937d172cca8'}
+                #acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
+                #acil.sendMessage(msg)
+                #acil.sendText(msg.to,"❂•••••••••✧••••••••••❂")
             elif "Set album:" in msg.text:
                 gid = msg.text.replace("Set album:","")
                 album = acil.getAlbum(gid)
@@ -1638,18 +1645,23 @@ def bot(op):
                 ginfo = acil.getGroup(msg.to)
                 acil.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
                 acil.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
-            elif "Bc " in msg.text:
-				bctxt = msg.text.replace("Bc ","")
-				kisendText(msg.to,(bctxt))
-            elif "Say " in msg.text:
-				bctxt = msg.text.replace("Say ","")
-				pb1.sendText(msg.to,(bctxt))
-				pb2.sendText(msg.to,(bctxt))
-            elif msg.text.lower() == 'ping':
-                pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
-                pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
+            #elif "Bc " in msg.text:
+				#bctxt = msg.text.replace("Bc ","")
+				#kisendText(msg.to,(bctxt))
+            #elif "Say " in msg.text:
+				#bctxt = msg.text.replace("Say ","")
+				#pb1.sendText(msg.to,(bctxt))
+				#pb2.sendText(msg.to,(bctxt))
+            #elif msg.text.lower() == 'ping':
+                #pb1.sendText(msg.to,"Ping 􀜁􀇔􏿿")
+                #pb2.sendText(msg.to,"Ping 􀜁􀇔􏿿")
             
-#----------------------------------------------- 
+#-----------------------------------------------
+if wait["alwayRead"] == True:
+    if msg.toType == 0:
+        acil.sendChatChecked(msg.from_,msg.id)
+    else:
+        acil.sendChatChecked(msg.to,msg.id)
 #-----------------------------------------------
         if op.type == 19:
             try:
