@@ -1658,10 +1658,10 @@ def bot(op):
             
 #-----------------------------------------------
 if wait["alwayRead"] == True:
-    if msg.toType == 0:
-        acil.sendChatChecked(msg.from_,msg.id)
-    else:
-        acil.sendChatChecked(msg.to,msg.id)
+        if msg.toType == 0:
+                acil.sendChatChecked(msg.from_,msg.id)
+            else:
+                acil.sendChatChecked(msg.to,msg.id)
 #-----------------------------------------------
         if op.type == 19:
             try:
